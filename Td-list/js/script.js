@@ -13,7 +13,7 @@
   
           //start
           var user = null
-         
+          
           
           function login(){
               email = document.getElementById('email').value;
@@ -59,3 +59,9 @@
                 // ..
                 });
         }
+
+var formCadastro = document.querySelector('.form-cadastro-tarefa')
+
+formCadastro.addEventListener('subimit',(e)=>{
+    let dateTime = document.querySelector('.form-cadastro-tarefa')
+})
