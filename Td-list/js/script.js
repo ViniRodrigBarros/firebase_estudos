@@ -10,11 +10,16 @@
         
           // Initialize Firebase
           firebase.initializeApp(firebaseConfig);
-  
+          
+          const db = firebase.firestore()
+
+          //list
+
+
           //start
-          var user = null
           
           
+  
           function login(){
               email = document.getElementById('email').value;
               password =  document.getElementById('password').value
@@ -26,9 +31,19 @@
                   var user = userCredential.user
                   document.getElementById("container-usuario").style.display = "block";
                   document.getElementById("login").style.display = "none";
-                  alert("logado")
-                  
-                
+
+                  db.collection('tarefas').where("id","==",user.uid).onSnapshot((data)=>{
+                    let list = document.querySelector('#tarefas')
+
+                    list.innerHTML=""
+
+                    data.docs.map((val)=>{
+                       list.innerHTML+=`<li>${val.data().tarefa} <a tarefa-id="${val.id}" class="excluir" href="javascript:void(0)">(x)</a></li>`
+                       
+                    })
+                    
+                })
+    
               })
               .catch((error) =>{
                  
@@ -36,10 +51,13 @@
                   var errorMessage = error.message
                   alert(errorMessage)
               })
-              
-              
           }
+          
 
+          function excluir(){
+
+          }
+          
           function cadastrar(){
        
             email = document.getElementById('emailCadastro').value;
@@ -52,6 +70,7 @@
                 document.getElementById("login").display = "none";
                
             })
+
             .catch((error) => {
                 const errorCode = error.code;
                 const errorMessage = error.message;
@@ -60,8 +79,43 @@
                 });
         }
 
-var formCadastro = document.querySelector('.form-cadastro-tarefa')
+        function cadastrarTask(){
+           
+   
+          
+            alert('tarefa cadastrada')
+            var formCad = document.querySelector('.form-cadastro-tarefa')
+         
+            firebase.auth().onAuthStateChanged((val)=>{
+                if(val){
+                    user = val;
+                    task = document.getElementById('task').value;
+                    data =  document.getElementById('data').value
 
-formCadastro.addEventListener('subimit',(e)=>{
-    let dateTime = document.querySelector('.form-cadastro-tarefa')
-})
+                    
+                    db.collection('tarefas').add({
+                        tarefa: task,
+                        date: new Date(data).getTime(),
+                        id: user.uid
+                    })
+                    formCad.reset()
+                    document.getElementById("container-usuario").style.display = "block";
+                    document.getElementById("login").style.display = "none";
+                }
+          })
+            
+        }
+        function deslogar(){
+           
+            e.preventDefalt();
+            firebase.auth().signOut().then(()=>{
+                user = null
+                alert("deslogado")
+                document.getElementById("container-usuario").display = "none";
+                document.getElementById("login").display = "block";
+            }).catch((error)=>{
+                alert("ERRO")
+            })
+           
+
+        }

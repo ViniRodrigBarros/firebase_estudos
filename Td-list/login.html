@@ -66,10 +66,15 @@
               <div class="align-self-center">
                 <div id="container-usuario">
                   <form class="form-cadastro-tarefa">
-                    <textarea name="tarefa"></textarea>
+                    <input type="submit"  value="Deslogar" id="deslogar" onclick = deslogar()>
+                    <textarea id = "task" name="tarefa"></textarea>
                     <input type="datetime-local" name = "datetime" id="data">
-                    <input type="submit" name="acao" value="Cadastrar Task" id="task">
+                    <input type="button" name="acao" value="Cadastrar Task" id="cadastrar" onclick=cadastrarTask()>
                   </form>
+                  <div class="tarefas-usuario">
+                      <h3>task-list</h3>
+                      <ul id="tarefas"></ul>
+                  </div>
                 </div>
                 <div id="login">
                     <section>

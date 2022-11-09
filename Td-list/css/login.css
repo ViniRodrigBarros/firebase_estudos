@@ -123,7 +123,11 @@ input:focus::after{
 h1,h3{
     padding-top: 10%;
     text-align: center;
+    color: white;
 
+}
+li{
+    color: white;
 }
 span p{
     margin-top: -10%;
