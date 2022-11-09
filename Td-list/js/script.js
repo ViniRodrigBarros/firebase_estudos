@@ -12,7 +12,8 @@
           firebase.initializeApp(firebaseConfig);
   
           //start
-          
+          var user = null
+         
           
           function login(){
               email = document.getElementById('email').value;
@@ -23,7 +24,9 @@
             firebase.auth().signInWithEmailAndPassword(email,password)
               .then((userCredential)=> {
                   var user = userCredential.user
-                  window.location.replace("user.html")
+                  document.getElementById("container-usuario").style.display = "block";
+                  document.getElementById("login").style.display = "none";
+                  alert("logado")
                   
                 
               })
@@ -45,7 +48,8 @@
             firebase.auth().createUserWithEmailAndPassword(email, password)
                 .then((userCredential) => {
                 const user = userCredential.user;
-                window.location.replace("login.html")
+                document.getElementById("container-usuario").display = "block";
+                document.getElementById("login").display = "none";
                
             })
             .catch((error) => {

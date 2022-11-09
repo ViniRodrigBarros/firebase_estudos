@@ -11,5 +11,4 @@ const firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
   //start
-  var {user} = require('./script.js')
-  console.log(user)
+  var user = null;
