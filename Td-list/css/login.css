@@ -1,0 +1,131 @@
+#barra{
+    background-color: #111428;
+    width: 100%;
+    height: 20px;
+}
+
+
+
+#home {
+    background-color: #111428;
+    width: 100%;
+    height: 600px;
+    color: white;    
+}
+a {
+    color: white;
+   }
+
+
+
+@media only screen and (max-width:20000px){
+
+    }   
+@media only screen and (max-width:600px){
+    #Iphone3d{
+        display: none;
+    }  
+    
+} 
+
+*{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    color: #111428;
+}
+
+
+
+.loguin, .registro{
+    color: #fff;
+}
+.loguin{
+    transition: all 3s;
+}
+
+.registro{
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transform: translateY(-1000%);
+    transition: all 1.3s;
+}
+
+.loguin input[type="submit"]{
+    border: none;
+    width: 75px;
+    color: white;
+    background: linear-gradient(to top left, rgb(255, 0, 200), rgba(255, 0, 212, 0.616)70%);
+    cursor: pointer;
+    border-radius: 15px;
+   transition: transform 0.3s;
+}
+label{
+    cursor: pointer;
+}
+.loguin input[type="submit"]:hover{
+    transform:  scale(1.2);
+}
+
+.loguin input[type="submit"]:active{
+    transform: scale(.8);
+}
+.registro input[type="submit"]{
+    border: none;
+    width: 120px;
+    color: white;
+    background: linear-gradient(to top left, rgb(255, 0, 200), rgba(255, 0, 212, 0.616)70%);
+    cursor: pointer;
+    border-radius: 15px;
+    transition: transform 0.4s linear;
+}
+.registro input[type="submit"]:hover{
+    transform:  scale(1.2);
+}
+.registro input[type="submit"]:active{
+    transform:  scale(.8);
+}
+
+.loguin form input, .registro form input{
+    margin: 50px auto;
+    display: block;
+    height: 30px;
+    border: 1px solid white;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: none;
+
+}
+.loguin form input::placeholder, .registro form input::placeholder{
+    color: white;
+}
+.loguin form input:focus, .registro form input:focus{
+   outline: 0px;
+   color: white;
+   border-bottom-color: rgb(226, 43, 58);
+   bottom: 0;
+   right: 50%;
+   left: 50%;
+   transition: all 2s ease;
+}
+input:focus::before{
+    transform: scaleX(0);
+}
+input:focus::after{
+    transform: scaleX(1);
+}
+h1,h3{
+    padding-top: 10%;
+    text-align: center;
+
+}
+span p{
+    margin-top: -10%;
+    text-align:center;
+}
