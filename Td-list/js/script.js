@@ -38,7 +38,7 @@
                     list.innerHTML=""
 
                     data.docs.map((val)=>{
-                       list.innerHTML+=`<li>${val.data().tarefa} <a tarefa-id="${val.id}" class="excluir" href="javascript:void(0)">(x)</a></li>`
+                       list.innerHTML+=`<li>Data:  ${val.data().date} || Tarefa:  ${val.data().tarefa}   <a tarefa-id="${val.id}" class="excluir" onclick = excluir("${val.id}") href="javascript:void(0)">(x)</a></li>`
                        
                     })
                     
@@ -54,8 +54,8 @@
           }
           
 
-          function excluir(){
-
+          function excluir(x){
+            db.collection('tarefas').doc(x).delete()
           }
           
           function cadastrar(){
@@ -95,7 +95,7 @@
                     
                     db.collection('tarefas').add({
                         tarefa: task,
-                        date: new Date(data).getTime(),
+                        date: data,
                         id: user.uid
                     })
                     formCad.reset()

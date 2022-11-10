@@ -58,8 +58,8 @@
     <section id="home" ><!-- Início seção home -->
       <div class="container ">
         <div class="row">
-            <div class="col-md-6 d-flex">
-              <iframe src='https://my.spline.design/purple3diconscopy-0f83cf4ad760cbfe3f6e475519c17df2/' frameborder='0' width='100%' height='600px' id="Iphone3d"></iframe>
+            <div class="col-md-6 d-flex" id="3D">
+              <iframe src='https://my.spline.design/purple3diconscopy-0f83cf4ad760cbfe3f6e475519c17df2/' frameborder='0' width='120%' height='650px' id="Iphone3d"></iframe>
              
             </div>
             <div class="col-md-6" id="mainlog">
@@ -67,12 +67,12 @@
                 <div id="container-usuario">
                   <form class="form-cadastro-tarefa">
                     <input type="submit"  value="Deslogar" id="deslogar" onclick = deslogar()>
-                    <textarea id = "task" name="tarefa"></textarea>
+                    <textarea id = "task" name="tarefa" placeholder="Escreva a sua tarefa"></textarea>
                     <input type="datetime-local" name = "datetime" id="data">
-                    <input type="button" name="acao" value="Cadastrar Task" id="cadastrar" onclick=cadastrarTask()>
+                    <input type="button" name="acao" value="Cadastrar Tarefa" id="cadastrar" onclick=cadastrarTask()>
                   </form>
                   <div class="tarefas-usuario">
-                      <h3>task-list</h3>
+                      <h3>To-Do-list</h3>
                       <ul id="tarefas"></ul>
                   </div>
                 </div>
@@ -80,9 +80,10 @@
                     <section>
 
                         <div class="loguin" id="loguin">
-                            
+                            <br><br><br>
                             <h1>To-Do-List</h1>
                             <h3>Login</h3>
+                            <br>
                             <form class="login-form">
                                 <input type="email" id ='email'>
                                 <input type="email" name = "password" id ='password'>
